@@ -12,7 +12,8 @@ This is the IP Control system programmed by Pravat Bhusal (www.github.com/Shadow
 1. Copy and paste the "ipcontrol.php" file into the "htdocs" of an Apache web-server.  
 2. Copy and paste the "iplog.php" file into the "htdocs" folder of an Apache web-server.  
 3. Copy and paste the "dbconnection.php" file into the "htdocs" folder of an Apache web-server  
-4. Copy and paste the "MsoyAuthenticator.java" file into your msoy/src/java/com/threerings/msoy/server folder  
+4. Copy and paste the "MsoyAuthenticator.java" file into your msoy/src/java/com/threerings/msoy/server folder 
+- Edit line 357 to your URL Address for the iplog.php file 
 5. (Discuss creating new table here)  
 6. (Discuss setting-up the dbconnection.php system here)  
 -----------------------------------------------------------------------------------------------
