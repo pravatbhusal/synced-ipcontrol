@@ -4,10 +4,12 @@
 
 CREATE TABLE "IPRecord"
 (
-  "memberId" integer NOT NULL DEFAULT 0,
   "memberIp" character varying(255) NOT NULL,
-  "blacklistReason" character varying(255),
-  banned boolean NOT NULL DEFAULT false
+  "blacklistReason" character varying(255) NOT NULL DEFAULT 'None'::character varying,
+  banned boolean NOT NULL DEFAULT false,
+  "memberId" serial NOT NULL,
+  id serial NOT NULL,
+  CONSTRAINT "IPRecord_pkey" PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
