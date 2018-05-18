@@ -4,8 +4,8 @@ This is the IP Control system programmed by Pravat Bhusal (www.github.com/Shadow
 # Setting-up the GUI Database View
 1. Install pgadmin3 in the Linux dedicated server via "sudo apt-get install pgadmin3"  
 2. In Putty or your SSH client, go to the X11 configuration and Enable X11 Forwarding and use the X Display Location as "localhost:0"  
-3. Install an X11 Server on your computer (preferably "Xming Server")  
-4. Now in the Linux dedicated server, open pgadmin3 with "pgadmin3"  
+3. Install an X11 Server on your computer (preferably "MobaXTerm: https://mobaxterm.mobatek.net/")  
+4. Now in the Linux dedicated server, open pgadmin3 with "pgadmin3" and configure pgadmin3 to open your msoy database  
 5. Finished!  
 
 # Documentation:
