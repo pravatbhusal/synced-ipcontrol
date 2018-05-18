@@ -21,12 +21,25 @@ $guessedPassword = $_POST["guessedPassword"];
 if($guessedPassword == $password) {
 	//connect to the database
 	$dbConnection = pg_connect("$host $port $dbname $credentials");
+} else if(isset($guessedPassword)) {
+	//show the input password form, with an incorrect password text
+	echo '
+		<form method="POST" action="ipcontrol.php">
+			Enter password to enter the console:</br>
+			<input type="password" name="guessedPassword" placeholder="Enter Password...">
+			<input type="submit" value="Submit">
+		</form>
+		<p style="color: red">Incorrect password!</p>
+		<h4>Programmed by Shadowsych:
+			<a href="https://github.com/Shadowsych" target="blank">https://github.com/Shadowsych</a>
+		</h4>
+	';
 } else {
 	//show the input password form
 	echo '
 		<form method="POST" action="ipcontrol.php">
-			Input password to enter the console:</br>
-			<input type="text" name="guessedPassword" placeholder="Password...">
+			Enter password to enter the console:</br>
+			<input type="password" name="guessedPassword" placeholder="Enter Password...">
 			<input type="submit" value="Submit">
 		</form>
 		<h4>Programmed by Shadowsych:
