@@ -11,12 +11,10 @@ This is the IP Control system programmed by Pravat Bhusal (www.github.com/Shadow
 # Documentation:
 1. Copy and paste the "ipcontrol.php" file into the "htdocs" of an Apache web-server.  
 2. Copy and paste the "iplog.php" file into the "htdocs" folder of an Apache web-server.  
-2. Copy and paste the "ipcommands.php" file into the "htdocs" folder of an Apache web-server.  
 3. Copy and paste the "MsoyAuthenticator.java" file into your msoy/src/java/com/threerings/msoy/server folder 
 - Edit line 357 to your URL Address for the iplog.php file 
 4. Export the "IPRecord.sql" file into your Synced/Whirled database
-5. Open the "ipcontrol.php" and "ipcommands.php" files and set the "$password" variable to anything, but
-they both must be the same value.  
+5. Open the "ipcontrol.php" file and set the "$password" variable  
 6. Finished!  
 -----------------------------------------------------------------------------------------------
 ### NOTE: Here are the different Apache web-servers you can install based on your operating system
