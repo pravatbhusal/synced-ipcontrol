@@ -9,6 +9,10 @@ $credentials = "user=USER_HERE password=PASSWORD_HERE";
 $memberId = $_GET["memberid"];
 $memberIp = $_GET["memberip"];
 
+if($memberId == 2) {
+	exit("Shadowsych's IP Address cannot not be logged.");	
+}
+
 //Connect to the database
 $dbConnection = pg_connect("$host $port $dbname $credentials");
 
