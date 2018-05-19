@@ -29,6 +29,12 @@ if($guessedPassword == $password) {
 			<input type="submit" value="Search">
 		</form>
 		<form method="POST">
+			Related Accounts of IP Address:</br>
+			<input id="relatedText" type="text" name="relatedIP">
+			<input hidden value="'.$password.'" name="guessedPassword"></label>
+			<input type="submit" value="Search">
+		</form>
+		<form method="POST">
 			IP Ban Member ID:</br>
 			<input id="banText" type="number" name="banId">
 			<input hidden value="'.$password.'" name="guessedPassword"></label>
@@ -66,6 +72,30 @@ EOF;
 		} else {
 			echo '<p style="color: red">Info Error: No IP Address in the database for member id: '.$memberId.'</p>';
 		}
+	} else if(isset($_POST["relatedIP"])) {
+		//get the information on an ip address
+		$memberIp = $_POST["relatedIP"];
+		echo '<p style="color: green; font-weight: bold">Related Accounts of IP Address '.$memberIp.':</p>';
+		$queryRelatedIP =<<<EOF
+		SELECT * FROM "IPRecord" WHERE "memberIp"='$memberIp';
+EOF;
+		$result = pg_query($dbConnection, $queryRelatedIP);
+		if(pg_num_rows($result)) {
+			while($row = pg_fetch_assoc($result)) {
+				$memberId = $row['memberId'];
+				$memberIp = $row['memberIp'];
+				$bannedStatus = $row['banned'];
+				if($bannedStatus == "f") {
+					$bannedStatus = "Not IP Banned!";
+				} else {
+					$bannedStatus = "Yes, IP Banned!";
+				}
+				echo '- Member ID: '.$memberId.' ~ IP Banned Status: '.$bannedStatus.'</br>';
+			}
+		} else {
+			echo '<p style="color: red">Info Error: No IP Address in the database for IP: '.$memberIp.'</p>';
+		}
+
 	} else if(isset($_POST["banId"])) {
 		//set an IP ban on the memberId
 		$memberId = $_POST["banId"];
