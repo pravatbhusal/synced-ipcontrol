@@ -350,12 +350,12 @@ public class MsoyAuthenticator extends Authenticator
             rdata.sessionToken = _memberRepo.startOrJoinSession(member.memberId);
         }
 		
-		//send an HTTP GET Request to the iplog.php with the user's network information
-		try {
-			String ipAddress = conn.getInetAddress().toString().replaceAll("/","");
-			String requestVariables = "memberid=" + member.memberId + "&" + "memberip=" + ipAddress;
-            URL urlRequest = new URL("http://www.syncedonline.com:8080/iplog.php?" + requestVariables);
-            InputStream stream = urlRequest.openStream();
+	//send an HTTP GET Request to the iplog.php with the user's network information
+	try {
+	    String ipAddress = conn.getInetAddress().toString().replaceAll("/","");
+	    String requestVariables = "memberid=" + member.memberId + "&" + "memberip=" + ipAddress;
+	    URL urlRequest = new URL("http://www.syncedonline.com:8080/iplog.php?" + requestVariables);
+	    InputStream stream = urlRequest.openStream();
         } catch(IOException e) {
             e.printStackTrace();
         }
