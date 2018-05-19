@@ -46,12 +46,26 @@ if($guessedPassword == $password) {
 	if(isset($_POST["searchId"])) {
 		//get the information on a memberId
 		$memberId = $_POST["searchId"];
-		echo '<h4>Member Information:</h4></br>
-		
-		';
-		echo '<h4>Related Accounts Information:</h4></br>
-		
-		';
+		echo '<p style="color: green; font-weight: bold">IP Information on Member ID '.$memberId.':</p>';
+		$queryInfo =<<<EOF
+		SELECT * FROM "IPRecord" WHERE "memberId"=$memberId;
+EOF;
+		$result = pg_query($dbConnection, $queryInfo);
+		if(pg_num_rows($result)) {
+			while($row = pg_fetch_assoc($result)) {
+				$memberId = $row['memberId'];
+				$memberIp = $row['memberIp'];
+				$bannedStatus = $row['banned'];
+				if($bannedStatus == "f") {
+					$bannedStatus = "Not IP Banned!";
+				} else {
+					$bannedStatus = "Yes, IP Banned!";
+				}
+				echo '- IP Address: '.$memberIp.' ~ IP Banned Status: '.$bannedStatus.'</br>';
+			}
+		} else {
+			echo '<p style="color: red">Info Error: No IP Address in the database for member id: '.$memberId.'</p>';
+		}
 	} else if(isset($_POST["banId"])) {
 		//set an IP ban on the memberId
 		$memberId = $_POST["banId"];
