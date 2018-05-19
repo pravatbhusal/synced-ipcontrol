@@ -23,3 +23,5 @@ This is the IP Control system programmed by Pravat Bhusal (www.github.com/Shadow
 - Linux Apache Server: LAMP
 
 ### NOTE: If you're using a Linux server and PostgreSQL, make sure to install the PHP and PostgreSQL driver: sudo apt-get install php5-pgsql
+
+### NOTE: You must give Apache root permissions within the sudoers file of your Linux server in order for PHP to send iptable requests
