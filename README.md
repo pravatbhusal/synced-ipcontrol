@@ -13,7 +13,7 @@ This is the IP Control system programmed by Pravat Bhusal (www.github.com/Shadow
 2. Copy and paste the "iplog.php" file into the "htdocs" folder of an Apache web-server.  
 3. Copy and paste the "MsoyAuthenticator.java" file into your msoy/src/java/com/threerings/msoy/server folder 
 - Edit line 357 to your URL Address for the iplog.php file 
-4. Export the "IPRecord.sql" table into your Synced/Whirled database
+4. Import the "IPRecord.sql" table into your Synced/Whirled database
 5. Open the "ipcontrol.php" file, and set the "$password" variable  
 6. Finished!  
 -----------------------------------------------------------------------------------------------
